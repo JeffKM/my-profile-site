@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이경민 - 풀스택 개발자</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Hero typing animation */
+        .typing-text {
+            border-right: 3px solid #818cf8;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typewriter 4s steps(40, end) forwards;
+        }
+
+        @keyframes typewriter {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Navigation bar transition */
+        nav {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(17, 24, 39, 0.95);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tech card hover effect */
+        .tech-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-icon {
+            transition: transform 0.3s ease;
+            font-size: 3rem;
+        }
+
+        .tech-card:hover .tech-icon {
+            transform: scale(1.2);
+        }
+
+        /* Project card hover effect */
+        .project-card {
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 27, 75, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        /* Smooth scroll effect */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Active nav link */
+        nav a.active {
+            color: #818cf8;
+            border-bottom: 2px solid #818cf8;
+        }
+
+        /* Button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px -5px rgba(129, 140, 248, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #818cf8;
+            color: #818cf8;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #818cf8;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-gray-900 transition-all">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <span class="text-indigo-400">Lee</span><span class="text-white">.</span>
+            </div>
+            <ul class="hidden md:flex gap-8">
+                <li><a href="#home" class="nav-link text-gray-300 hover:text-indigo-400 transition">Home</a></li>
+                <li><a href="#about" class="nav-link text-gray-300 hover:text-indigo-400 transition">About</a></li>
+                <li><a href="#projects" class="nav-link text-gray-300 hover:text-indigo-400 transition">Projects</a></li>
+                <li><a href="#contact" class="nav-link text-gray-300 hover:text-indigo-400 transition">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen pt-20 pb-20 flex items-center justify-center bg-gradient-to-br from-gray-900 via-indigo-900 to-gray-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                <span class="typing-text text-white">안녕하세요.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                풀스택 개발자 <span class="text-indigo-400 font-semibold">이경민</span>입니다.
+            </p>
+            <p class="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
+                웹 개발의 모든 영역에서 창의적이고 효율적인 솔루션을 만들어갑니다.
+                사용자 경험을 최우선으로 생각하는 개발자입니다.
+            </p>
+            <div class="flex gap-6 justify-center flex-wrap">
+                <a href="#projects" class="px-8 py-3 rounded-lg font-semibold text-white btn-primary">
+                    프로젝트 보기
+                </a>
+                <a href="#contact" class="px-8 py-3 rounded-lg font-semibold btn-secondary">
+                    연락하기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                기술 <span class="text-indigo-400">스택</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- HTML Card -->
+                <div class="tech-card bg-gray-700 p-8 rounded-lg text-center">
+                    <div class="tech-icon mb-4">📄</div>
+                    <h3 class="text-2xl font-bold mb-3">HTML</h3>
+                    <p class="text-gray-300">시맨틱 마크업과 웹 표준을 준수한 구조적 코드 작성</p>
+                </div>
+
+                <!-- CSS Card -->
+                <div class="tech-card bg-gray-700 p-8 rounded-lg text-center">
+                    <div class="tech-icon mb-4">🎨</div>
+                    <h3 class="text-2xl font-bold mb-3">CSS</h3>
+                    <p class="text-gray-300">Tailwind, SCSS를 활용한 반응형 UI 디자인 및 애니메이션</p>
+                </div>
+
+                <!-- JavaScript Card -->
+                <div class="tech-card bg-gray-700 p-8 rounded-lg text-center">
+                    <div class="tech-icon mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-3">JavaScript</h3>
+                    <p class="text-gray-300">Vanilla JS 및 React, Node.js를 활용한 동적 기능 구현</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                최근 <span class="text-indigo-400">프로젝트</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Project 1 -->
+                <div class="project-card bg-gray-800 rounded-lg overflow-hidden relative h-72">
+                    <img src="https://via.placeholder.com/400x300?text=Todo+App" alt="Todo App" class="w-full h-full object-cover">
+                    <div class="project-overlay">
+                        <h3 class="text-2xl font-bold mb-2">Todo App</h3>
+                        <p class="text-gray-300 mb-4">React와 LocalStorage를 활용한 할일 관리 애플리케이션</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-500 text-white text-sm px-3 py-1 rounded">React</span>
+                            <span class="bg-indigo-500 text-white text-sm px-3 py-1 rounded">CSS</span>
+                        </div>
+                        <a href="#" class="text-indigo-400 font-semibold hover:text-indigo-300">→ GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-gray-800 rounded-lg overflow-hidden relative h-72">
+                    <img src="https://via.placeholder.com/400x300?text=Weather+App" alt="Weather App" class="w-full h-full object-cover">
+                    <div class="project-overlay">
+                        <h3 class="text-2xl font-bold mb-2">Weather App</h3>
+                        <p class="text-gray-300 mb-4">OpenWeather API를 연동한 실시간 날씨 정보 제공 앱</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-500 text-white text-sm px-3 py-1 rounded">JavaScript</span>
+                            <span class="bg-indigo-500 text-white text-sm px-3 py-1 rounded">API</span>
+                        </div>
+                        <a href="#" class="text-indigo-400 font-semibold hover:text-indigo-300">→ GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-gray-800 rounded-lg overflow-hidden relative h-72">
+                    <img src="https://via.placeholder.com/400x300?text=E-Commerce" alt="E-Commerce" class="w-full h-full object-cover">
+                    <div class="project-overlay">
+                        <h3 class="text-2xl font-bold mb-2">E-Commerce Site</h3>
+                        <p class="text-gray-300 mb-4">Node.js와 MongoDB를 활용한 풀스택 전자상거래 플랫폼</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-500 text-white text-sm px-3 py-1 rounded">Node.js</span>
+                            <span class="bg-indigo-500 text-white text-sm px-3 py-1 rounded">MongoDB</span>
+                        </div>
+                        <a href="#" class="text-indigo-400 font-semibold hover:text-indigo-300">→ GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">
+                <span class="text-indigo-400">연락하기</span>
+            </h2>
+            <p class="text-gray-300 text-lg mb-12">
+                협업 제안이나 질문이 있으신가요? 언제든지 연락 주세요.
+            </p>
+            <div class="flex flex-col items-center gap-8">
+                <a href="mailto:lee3945@naver.com" class="flex items-center gap-4 text-2xl hover:text-indigo-400 transition">
+                    <span class="text-4xl">📧</span>
+                    <span>lee3945@naver.com</span>
+                </a>
+                <div class="flex gap-6 mt-4">
+                    <a href="#" class="text-3xl hover:text-indigo-400 transition">GitHub</a>
+                    <a href="#" class="text-3xl hover:text-indigo-400 transition">LinkedIn</a>
+                    <a href="#" class="text-3xl hover:text-indigo-400 transition">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-700">
+        <div class="max-w-6xl mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2026 이경민. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation scroll effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Active nav link
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
+        });
+
+        // Typing animation
+        const typingElement = document.querySelector('.typing-text');
+        if (typingElement) {
+            const text = typingElement.textContent;
+            typingElement.textContent = '';
+            let index = 0;
+
+            const typeInterval = setInterval(() => {
+                if (index < text.length) {
+                    typingElement.textContent += text[index];
+                    index++;
+                } else {
+                    clearInterval(typeInterval);
+                    typingElement.style.borderRight = 'none';
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>
